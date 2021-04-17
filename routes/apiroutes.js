@@ -9,4 +9,11 @@ module.exports = function(app) {
             res.status(400).json(err);
         });
     })
+    app.get("/api/workouts/range", ({}, res) => {
+        db.Workout.find({}).then((dbWorkout) => {
+          res.json(dbWorkout);
+        }).catch(err => {
+          res.status(400).json(err);
+        });
+      });
 }
